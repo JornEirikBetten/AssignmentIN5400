@@ -374,7 +374,7 @@ class LSTMCell(nn.Module):
         n = input_size + hidden_state_size
         self.weight_f = nn.Parameter(
             torch.randn(n, hidden_state_size)/(np.sqrt(n)))
-        self.bias_f = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
+        self.bias_f = nn.Parameter(torch.zeros(1, hidden_state_size))
         # Input gate parameters
         self.weight_i = nn.Parameter(
             torch.randn(n, hidden_state_size)/(np.sqrt(n)))
