@@ -167,7 +167,7 @@ class RNNOneLayerSimplified(nn.Module):
         return logits, current_hidden_state
 
 class RNN(nn.Module):
-    def __init__(self, input_size, hidden_state_size, num_rnn_layers, cell_type='GRU', last_layer_state_size):
+    def __init__(self, input_size, hidden_state_size, num_rnn_layers, last_layer_state_size=None, cell_type='GRU'):
         """
         :param input_size: Size of the embeddings
         :param hidden_state_size: Number of units in the RNN cells (will be equal for all RNN layers)
