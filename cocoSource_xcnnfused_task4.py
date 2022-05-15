@@ -56,7 +56,7 @@ class ImageCaptionModel(nn.Module):
                            hidden_state_size=self.hidden_state_sizes,
                            num_rnn_layers=self.num_rnn_layers,
                            cell_type=self.cell_type,
-                           last_layer_state_size=)
+                           last_layer_state_size=2*self.hidden_state_sizes)
 
     def forward(self, cnn_features, x_tokens, is_train: bool, current_hidden_state=None) -> tuple:
         """

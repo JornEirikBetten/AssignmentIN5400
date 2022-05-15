@@ -46,7 +46,7 @@ if __name__ == '__main__':
         'cuda': {'use_cuda': True,  # Use_cuda=True: use GPU
                  'device_idx': 0},  # Select gpu index: 0,1,2,3
         'numbOfCPUThreadsUsed': 10,  # Number of cpu threads use in the dataloader
-        'numbOfEpochs': 30,  # Number of epochs
+        'numbOfEpochs': 10,  # Number of epochs
         'data_dir': data_dir,  # data directory
         'img_dir': 'loss_images_test/',
         'modelsDir': 'storedModels_test/',
