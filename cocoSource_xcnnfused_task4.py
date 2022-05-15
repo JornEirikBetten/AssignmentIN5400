@@ -231,7 +231,7 @@ class RNN(nn.Module):
             #    See the simplified rnn for the one layer version.
 
             cnn_features_maxpooled = maxpooling(processed_cnn_features.permute(0, 2, 1))
-            cnn_features_maxpooled = cnn_features_maxpooled.permute(0, 2, 1)
+            cnn_features_maxpooled = cnn_features_maxpooled.permute(0, 2, 1)[:, 0, :]
             input_first_layer = torch.cat((input_tokens, cnn_features_maxpooled), dim=1)
             current_hidden_state_layer_1 = torch.unsqueeze(self.cells[0](input_first_layer, current_hidden_state[0]), 0)
             attention_weights = attention_layer(current_hidden_state_layer_1[0,:].clone())
