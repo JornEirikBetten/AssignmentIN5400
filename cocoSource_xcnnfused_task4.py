@@ -35,7 +35,7 @@ class ImageCaptionModel(nn.Module):
                                             nn.Linear(2*self.hidden_state_sizes, 50),
                                             nn.LeakyReLU(),
                                             nn.Linear(50, 10),
-                                            nn.Softmax()
+                                            nn.Softmax(dim=1)
                                             )
         self.simplified_rnn = False
 
