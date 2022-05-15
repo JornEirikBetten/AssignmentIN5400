@@ -215,7 +215,7 @@ class RNN(nn.Module):
 
         # Get embeddings for the whole sequence
         embeddings = embedding_layer(input=tokens.to("cuda:0"))  # Should have shape (batch_size, sequence_length, embedding_size)
-        hidden_states = list(torch.unbind(initial_hidden_state))
+        hidden_states = list(torch.unbind(initial_hidden_state)).to("cuda:0")
         maxpooling = nn.MaxPool1d(10)
         logits_sequence = []
         # TODO: Fetch the first (index 0) embeddings that should go as input to the RNN.
