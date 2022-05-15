@@ -245,7 +245,6 @@ class RNN(nn.Module):
                     logits_sequence.append(logits_i)
                     predictions = torch.argmax(logits_i, dim=1)
             current_hidden_state = torch.cat((current_hidden_state_layer_1, current_hidden_state_2), dim=0)
-            output_first_layer = self.cells[0](input_first_layer, hidden_states[layer])
             if i < sequence_length - 1:
                 if is_train:
                     input_tokens = embeddings[:, i+1, :]
