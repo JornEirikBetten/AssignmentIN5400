@@ -415,27 +415,7 @@ class LSTMCell(nn.Module):
 
 
 ######################################################################################################################
-class Attention(nn.Module):
-    def __init__(self, last_layer_state_size):
-        super(Attention, self).__init__()
-        self.attention_layer = nn.Sequential(nn.Dropout(p=0.25),
-                                            nn.Linear(self.input_size, 50),
-                                            nn.LeakyReLU(),
-                                            nn.Linear(50, 10),
-                                            nn.SoftMax()
-                                            )
-        self.hidden_state_size = hidden_state_size
 
-
-    def forward(self, x, hidden_state, attention_layer=self.attention_layer, attention_weights):
-        x = x.permute(0, 2, 1)
-        first_layer_out = nn.MaxPool1d(x)
-        first_layer_out = first_layer_out.permute(0, 2, 1)
-
-
-
-
-######################################################################################################################
 
 def loss_fn(logits, y_tokens, y_weights):
     """
