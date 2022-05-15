@@ -85,7 +85,7 @@ class ImageCaptionModel(nn.Module):
 
         # Call self.rnn to get the "logits" and the new hidden state
         logits, hidden_state = self.rnn(x_tokens, processed_cnn_features, initial_hidden_state, self.output_layer,
-                                        self.embedding_layer, is_train)
+                                        self.embedding_layer, attention_layer=self.attention_layer, is_train)
 
         return logits, hidden_state
 
