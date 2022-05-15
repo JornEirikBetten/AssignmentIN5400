@@ -5,7 +5,7 @@ from torch import nn
 
 
 class ImageCaptionModel(nn.Module):
-    def __init__(self, config: dict, input):
+    def __init__(self, config: dict):
         """
         This is the main module class for the image captioning network
         :param config: dictionary holding neural network configuration
