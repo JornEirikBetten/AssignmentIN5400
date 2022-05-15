@@ -371,7 +371,7 @@ class LSTMCell(nn.Module):
         #             hidden state and cell's memory
 
         # Forget gate parameters
-        n = input_size + *hidden_state_size
+        n = input_size + hidden_state_size
         self.weight_f = nn.Parameter(
             torch.randn(n, hidden_state_size)/(np.sqrt(n)))
         self.bias_f = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
