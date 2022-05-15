@@ -7,7 +7,7 @@ from utils.validate_metrics import validateCaptions
 # here you plug in your modelfile depending on what you have developed: simple rnn, 2 layer, or attention
 # if you have 3 modelfiles a.py b.py c.py then you do: from a import ...
 # or you have one file with n different imgcapmodels
-from cocoSource_xcnnfused_task1 import ImageCaptionModel
+from cocoSource_xcnnfused_task4 import ImageCaptionModel
 
 
 def main(config, modelParam):
