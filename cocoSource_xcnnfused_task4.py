@@ -215,7 +215,7 @@ class RNN(nn.Module):
 
         # Get embeddings for the whole sequence
         embeddings = embedding_layer(input=tokens.to("cuda:0"))  # Should have shape (batch_size, sequence_length, embedding_size)
-        hidden_states = list(torch.unbind(initial_hidden_state)).to("cuda:0")
+        hidden_states = list(torch.unbind(initial_hidden_state))
         maxpooling = nn.MaxPool1d(10)
         logits_sequence = []
         # TODO: Fetch the first (index 0) embeddings that should go as input to the RNN.
@@ -401,9 +401,9 @@ class LSTMCell(nn.Module):
         # TODO: Implement the GRU equations to get the new hidden state, cell memory and return them.
         #       The first half of the returned value must represent the new hidden state and the second half
         #       new cell state.
-        last_c = hidden_state[:, self.hidden_state_size : -1]
-        last_activation = hidden_state[:, 0:self.hidden_state_size]
-        cat_hidden_x = torch.cat((x, last_activation), dim=1)
+        last_c = hidden_state[:, self.hidden_state_size : -1].to("cuda:0")
+        last_activation = hidden_state[:, 0:self.hidden_state_size].to("cuda:0")
+        cat_hidden_x = torch.cat((x, last_activation), dim=1).to("cuda:0")
         i = torch.sigmoid( torch.mm(cat_hidden_x, self.weight_i) + self.bias_i)
         f = torch.sigmoid( torch.mm(cat_hidden_x, self.weight_f) + self.bias_f)
         o = torch.sigmoid( torch.mm(cat_hidden_x, self.weight_o) + self.bias_o)
