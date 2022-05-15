@@ -1,6 +1,6 @@
 from torch import optim
 
-from cocoSource_xcnnfused import loss_fn
+from cocoSource_xcnnfused_task1 import loss_fn
 
 class Model():
     def __init__(self, config, modelParam, imageCaptionModel):
@@ -28,11 +28,11 @@ class Model():
             self.optimizer = optim.RMSprop(self.net.parameters(), lr=config['learningRate']['lr'], weight_decay=config['weight_decay'])
         else:
             raise Exception('invalid optimizer')
-            
-        self.scheduler = None    
+
+        self.scheduler = None
         if (config['scheduler_milestones'] is not None) and (config['scheduler_factor'] is not None) :
             self.scheduler = optim.lr_scheduler.MultiStepLR(self.optimizer, milestones=config['scheduler_milestones'], gamma= config['scheduler_factor'])
 
-            
-            
+
+
         return
