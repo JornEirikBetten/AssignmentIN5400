@@ -235,7 +235,7 @@ class RNN(nn.Module):
             input_first_layer = torch.cat((input_tokens, cnn_features_maxpooled), dim=1)
             current_hidden_state_layer_1 = torch.unsqueeze(self.cells[0](input_first_layer, current_hidden_state[0]), 0)
             attention_weights = attention_layer(current_hidden_state_layer_1[0,:].clone())
-            input_layer_2 = torch.sum((processed_cnn_features*torch.unsqueeze(att_w,2)),1)
+            input_layer_2 = torch.sum((processed_cnn_features*torch.unsqueeze(attention_weights, 2)),1)
             for j in range(1, self.num_rnn_layers):
                 input_next_layer = torch.cat((current_hidden_state1[0,:,:processed_cnn_features.shape[2]], input_layer_2), dim=1)
                 current_hidden_state_2 = torch.unsqueeze(self.cells[j](input_next_layer, current_hidden_state[j]), 0)
