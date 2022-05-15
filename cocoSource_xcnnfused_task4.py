@@ -214,7 +214,7 @@ class RNN(nn.Module):
             sequence_length = 40  # Max sequence length to generate
 
         # Get embeddings for the whole sequence
-        embeddings = embedding_layer(input=tokens)  # Should have shape (batch_size, sequence_length, embedding_size)
+        embeddings = embedding_layer(input=tokens.to("cuda:0"))  # Should have shape (batch_size, sequence_length, embedding_size)
         hidden_states = list(torch.unbind(initial_hidden_state))
         maxpooling = nn.MaxPool1d(10)
         logits_sequence = []
