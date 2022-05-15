@@ -371,22 +371,22 @@ class LSTMCell(nn.Module):
         #             hidden state and cell's memory
 
         # Forget gate parameters
-        n = input_size + 2*hidden_state_size
+        n = input_size + hidden_state_size
         self.weight_f = nn.Parameter(
-            torch.randn(n, 2*hidden_state_size)/(np.sqrt(n)))
-        self.bias_f = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
+            torch.randn(n, hidden_state_size)/(np.sqrt(n)))
+        self.bias_f = nn.Parameter(torch.zeros(1, hidden_state_size))
         # Input gate parameters
         self.weight_i = nn.Parameter(
-            torch.randn(n, 2*hidden_state_size)/(np.sqrt(n)))
-        self.bias_i = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
+            torch.randn(n, hidden_state_size)/(np.sqrt(n)))
+        self.bias_i = nn.Parameter(torch.zeros(1, hidden_state_size))
         # Output gate parameters
         self.weight_o = nn.Parameter(
-            torch.randn(n, 2*hidden_state_size)/(np.sqrt(n)))
-        self.bias_o = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
+            torch.randn(n, hidden_state_size)/(np.sqrt(n)))
+        self.bias_o = nn.Parameter(torch.zeros(1, hidden_state_size))
         # Memory cell parameters
         self.weight = nn.Parameter(
-            torch.randn(n, 2*hidden_state_size)/(np.sqrt(n)))
-        self.bias = nn.Parameter(torch.zeros(1, 2*hidden_state_size))
+            torch.randn(n, hidden_state_size)/(np.sqrt(n)))
+        self.bias = nn.Parameter(torch.zeros(1, hidden_state_size))
 
     def forward(self, x, hidden_state):
         """
