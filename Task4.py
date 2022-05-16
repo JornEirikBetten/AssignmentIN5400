@@ -68,7 +68,7 @@ if __name__ == '__main__':
         'truncated_backprop_length': 25,
         'hidden_state_sizes': 512,  #
         'num_rnn_layers': 2,  # number of stacked rnn's
-        'scheduler_milestones': [15,25], #45,70 end at 80? or 60, 80
+        'scheduler_milestones': [45,80], #45,70 end at 80? or 60, 80
         'scheduler_factor': 0.2, #+0.25 dropout
         #'featurepathstub': 'detectron2vg_features' ,
         #'featurepathstub': 'detectron2m_features' ,
